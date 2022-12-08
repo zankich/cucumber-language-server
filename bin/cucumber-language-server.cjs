@@ -3,13 +3,10 @@
 require('source-map-support').install()
 const { startStandaloneServer } = require('../dist/cjs/src/wasm/startStandaloneServer')
 const { NodeFiles } = require('../dist/cjs/src/node/NodeFiles')
-const url = require('url')
-const { version } = require('../src/version')
+const { version } = require('../dist/cjs/src/version')
 
-const wasmBaseUrl = url.pathToFileURL(
-  `${__dirname}/../node_modules/@cucumber/language-service/dist`
-)
-const { connection } = startStandaloneServer(wasmBaseUrl.href, (rootUri) => new NodeFiles(rootUri))
+const wasmBaseUrl = `${__dirname}/../node_modules/@cucumber/language-service/dist`
+const { connection } = startStandaloneServer(wasmBaseUrl, (rootUri) => new NodeFiles(rootUri))
 
 // Don't die on unhandled Promise rejections
 process.on('unhandledRejection', (reason, p) => {
