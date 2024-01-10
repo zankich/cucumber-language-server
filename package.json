@@ -41,8 +41,7 @@
     "eslint-fix": "eslint --ext ts --max-warnings 0 --fix src test",
     "eslint": "eslint --ext ts --max-warnings 0 src test",
     "upgrade": "npm-check-updates --upgrade",
-    "prepare": "husky install",
-    "pretty-quick-staged": "pretty-quick --staged"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -63,23 +62,26 @@
     "url": "https://github.com/cucumber/language-server/issues"
   },
   "homepage": "https://github.com/cucumber/language-server#readme",
+  "lint-staged": {
+    "{src,test}/**/*.ts": "npm run eslint-fix"
+  },
   "devDependencies": {
     "@cucumber/cucumber": "10.2.1",
     "@types/mocha": "10.0.6",
-    "@types/node": "20.10.7",
+    "@types/node": "20.10.8",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "5.1.2",
+    "eslint-plugin-prettier": "5.1.3",
     "eslint-plugin-simple-import-sort": "10.0.0",
     "husky": "8.0.3",
+    "lint-staged": "^15.2.0",
     "mocha": "10.2.0",
     "npm-check-updates": "16.14.12",
     "prettier": "3.1.1",
-    "pretty-quick": "3.1.3",
     "ts-node": "10.9.2",
     "typescript": "5.3.3",
     "vscode-jsonrpc": "8.2.0",
